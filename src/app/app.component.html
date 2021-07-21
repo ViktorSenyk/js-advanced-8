@@ -1,0 +1,5 @@
+<div class="conteiner">
+  <button class="btn-main" (click)="changeBoolean()">Edit</button>
+  <app-cv-header [(disabled)]="disabled" (changeBoolean)="changeBoolean()"> </app-cv-header>
+  <app-cv-main [(disabled)]="disabled" (changeBoolean)="changeBoolean()"></app-cv-main>
+</div>

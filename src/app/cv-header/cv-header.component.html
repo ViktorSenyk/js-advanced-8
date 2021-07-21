@@ -1,0 +1,83 @@
+<div class="header">
+  <div class="header-img">
+    <div class="header-img-block">
+      <i class="fas fa-user-tie"></i>
+    </div>
+  </div>
+  <div class="header-contacts">
+    <div class="h2">
+      <h2>CONTACTS & INFO</h2>
+    </div>
+    <div class="contacts-list">
+      <ul>
+        <li>
+          <i class="fas fa-id-card"></i>
+          <input type="text" name="name" [disabled]="true" [ngModel]="person.name" (ngModelChange)="onChange(saveName)"
+            #name>
+
+          <button class="btn" [ngClass]="{hidden: disabled}" (click)='edit(name)'><i
+              class="fas fa-pen-square"></i></button>
+
+          <button class="btn" *ngIf="!name.disabled" (click)="deleteField(name, saveName)"><i
+              class="fas fa-trash-alt"></i></button>
+
+          <button class="btn" [ngClass]="{hidden: true}" (click)="saveChanges(name, $event)" #saveName><i
+              class="fas fa-check-square"></i></button>
+        </li>
+        <li>
+          <i class="fas fa-map-marked-alt"></i>
+          <input type="text" name="adress" [disabled]="true" [ngModel]="person.adress"
+            (ngModelChange)="onChange(saveMap)" #map>
+
+          <button class="btn" [ngClass]="{hidden: disabled}" (click)='edit(map)'><i
+              class="fas fa-pen-square"></i></button>
+
+          <button class="btn" *ngIf="!map.disabled" (click)="deleteField(map, saveMap)"><i
+              class="fas fa-trash-alt"></i></button>
+
+          <button class="btn" [ngClass]="{hidden: true}" (click)="saveChanges(map, $event)" #saveMap><i
+              class="fas fa-check-square"></i></button>
+        </li>
+        <li>
+          <i class="fas fa-tty"></i>
+          <input type="text" name="phoneNumber" [disabled]="true" [ngModel]="person.phoneNumber"
+            (ngModelChange)="onChange(savePhoneNumber)" #phoneNumber>
+
+          <button class="btn" [ngClass]="{hidden: disabled}" (click)='edit(phoneNumber)'><i
+              class="fas fa-pen-square"></i></button>
+
+          <button class="btn" *ngIf="!phoneNumber.disabled" (click)="deleteField(phoneNumber, savePhoneNumber)"><i
+              class="fas fa-trash-alt"></i></button>
+
+          <button class="btn" [ngClass]="{hidden: true}" (click)="saveChanges(phoneNumber, $event)" #savePhoneNumber><i
+              class="fas fa-check-square"></i></button>
+        </li>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <input type="text" name="email" [disabled]="true" [ngModel]="person.email"
+            (ngModelChange)="onChange(saveMail)" #mail>
+
+          <button class="btn" [ngClass]="{hidden: disabled}" (click)='edit(mail)'><i
+              class="fas fa-pen-square"></i></button>
+
+          <button class="btn" *ngIf="!mail.disabled" (click)="deleteField(mail, saveMail)"><i
+              class="fas fa-trash-alt"></i></button>
+
+          <button class="btn" [ngClass]="{hidden: true}" (click)="saveChanges(mail, $event)" #saveMail><i
+              class="fas fa-check-square"></i></button>
+        </li>
+        <li *ngIf="person.experience.length; else myLiTemp">
+          <i class="fas fa-briefcase"></i>
+          <small>Project count:</small> <input type="text" [(ngModel)]="person.experience.length" id="count"
+            [disabled]="true">
+        </li>
+      </ul>
+      <ng-template #myLiTemp>
+        <li>
+          <i class="fas fa-briefcase"></i>
+          <small>Project count:</small> <input type="text" value="None" id="count" [disabled]="true">
+        </li>
+      </ng-template>
+    </div>
+  </div>
+</div>

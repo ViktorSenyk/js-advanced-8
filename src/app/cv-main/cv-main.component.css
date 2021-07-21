@@ -1,0 +1,142 @@
+.main {
+  display: flex;
+  background: rgba(175, 175, 175, 0.67);
+}
+
+.soft-hard, .experience {
+  flex: 0 1 50%;
+  padding: 1rem 0rem;
+}
+
+.h2 {
+  background-color: #e2e2e2;
+  padding: .3rem 2rem;
+  font-size: 25px;
+  margin-bottom: 1rem;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.soft-hard .h2 {
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+.experience .h2 {
+  margin-left: 5%;
+  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+
+.skill-list-item {
+  width: 80%;
+}
+
+.skill-list-item-header{
+  background: rgb(194, 104, 104);
+  padding: .5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 3px 2px 20px #f4f4f4;
+}
+
+.skill-list-item-header input {
+  text-align: center;
+  font-size: 25px;
+  width: 100%;
+}
+.skill-list-item-header input:disabled {
+  cursor: pointer;
+}
+
+.skill-list-item-header button {
+  font-size: 25px;
+}
+
+.inputBtn {
+  display: inline-block;
+  width: 60%;
+  margin-right: 2rem;
+}
+
+.soft-hard textarea, .experience-list-item-body textarea{
+  width: 100%;
+  height: 8rem;
+  font-size: 14px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: default;
+  padding: .5rem 1rem;
+  overflow: hidden;
+}
+
+.soft-hard textarea{
+  height: 6rem;
+}
+
+.experience-list-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: rgb(138, 160, 212);
+  padding: .5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-bottom-left-radius: 2rem;
+  box-shadow: 3px 2px 20px #f4f4f4;
+}
+
+.experience-list-item-logo {
+  flex: 0 1 30%;
+}
+
+img {
+  width: 100%;
+}
+
+.experience-list-item-main {
+  flex: 0 1 70%;
+}
+
+.experience-list-item-header {
+  border-bottom: 1px dotted black;
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-list-item-body {
+  color: rgb(66, 66, 66);
+}
+
+.experience-create {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 2px dotted rgb(104, 140, 194);
+}
+
+.experience-create input, .experience-create button {
+ margin: 0.5rem;
+ width: 95%;
+ height: 2rem;
+}
+
+.experience-create textarea {
+  margin: 0.5rem;
+  width: 95%;
+  height: 10rem;
+  outline: none;
+  padding: 0.5rem;
+  background: #ccc;
+}
+
+.experience-create button {
+  background: rgba(240, 125, 125, 0.377);
+  outline: none;
+  border-radius: .5rem;
+}
+
+.logo-url {
+  margin: 0.5rem 2rem;
+  width: 80%;
+}

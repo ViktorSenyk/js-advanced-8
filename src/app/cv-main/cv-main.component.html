@@ -1,0 +1,79 @@
+<div class="main">
+
+  <div class="soft-hard">
+    <div class="h2">
+      <h2>SOFT & TECHNICAL SKILLS</h2>
+    </div>
+    <div class="skill-list">
+      <div class="skill-list-item" *ngFor="let item of person.softTechnicalSkills; let i = index">
+        <div class="skill-list-item-header">
+          <div class="inputBtn" (click)="showItemBody($event)">
+            <input type="text" [disabled]="true" [ngModel]="item[0]" (ngModelChange)="onChange(save)" #input>
+          </div>
+          <button class="btn" [ngClass]="{hidden: disabled}" (click)="edit($event)"> <i class="fas fa-pen-square"></i>
+          </button>
+          <button class="btn" [ngClass]="{hidden: input.disabled}" (click)="deleteField(i)"><i
+              class="fas fa-trash-alt"></i></button>
+          <button class="btn" [ngClass]="{hidden: true}" (click)="saveChanges(input, textArea, i , save)" #save><i
+              class="fas fa-check-square"></i></button>
+        </div>
+        <div class="skill-list-item-body" [ngClass]="{hidden:true}">
+          <textarea style="resize: none" [disabled]="true" [ngModel]="item[1]" (ngModelChange)="onChange(save)" #textArea></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="experience">
+    <div class="h2">
+      <h2>EXPERIENCE</h2>
+      <button class="btn" (click)="showCreateBlock(createBlock)"><i class="fas fa-plus-square"></i></button>
+    </div>
+    <div class="experience-create" [ngClass]="{hidden:true}" #createBlock>
+      <form [formGroup]="form" (ngSubmit)="createExpItem()">
+        <input type="text" placeholder="Company Name" formControlName="companyName">
+        <input type="text" placeholder="Company's location" formControlName="location">
+        <input type="text" placeholder="Company's logo URL" formControlName="logoUrl">
+        <hr>
+        <textarea name="" placeholder="Description" formControlName="description"></textarea>
+        <br>
+        <button [disabled]="form.invalid">Add</button>
+      </form>
+    </div>
+    <div class="experience-list" *ngIf="person.experience.length; else myTemp">
+      <div class="experience-list-item" *ngFor="let item of person.experience; let i = index">
+        <div class="experience-list-item-logo"> <img [src]="item.logoUrl"></div>
+        <div class="experience-list-item-main">
+          <div class="experience-list-item-header">
+            <div class="experience-list-item-header-text">
+              <input type="text" style="width: 100%;" [disabled]="true" [ngModel]="item.companyName"
+                (ngModelChange)="onChange(save)" #companyName>
+              <br>
+              <input type="text" style="font-size: 14px;" [disabled]="true" [ngModel]="item.location"
+                (ngModelChange)="onChange(save)" #location>
+            </div>
+            <div class="experience-list-item-header-btns">
+              <button class="btn" [ngClass]="{hidden: disabled}"
+                (click)="editExpBlock(companyName, location, description)"><i class="fas fa-pen-square"></i></button>
+              <button class="btn" [ngClass]="{hidden: companyName.disabled}" (click)="deleteExpBlock(i)"><i
+                  class="fas fa-trash-alt"></i></button>
+              <button class="btn" [ngClass]="{hidden: true}"
+                (click)="saveExpBlockChanges(companyName, location, description, logoUrl, save, i)" #save><i
+                  class="fas fa-check-square"></i></button>
+            </div>
+
+          </div>
+          <div class="experience-list-item-body">
+            <textarea [disabled]="true" [ngModel]="item.description" (ngModelChange)="onChange(save)"
+              #description></textarea>
+          </div>
+        </div>
+        <input type="text" class="logo-url" [ngClass]="{hidden: companyName.disabled}" [ngModel]="logoUrlTitle"
+          (ngModelChange)="onChange(save)" (focus)="clearThisField(logoUrl)" #logoUrl>
+      </div>
+    </div>
+    <ng-template #myTemp>
+      <h2>No experience ...</h2>
+    </ng-template>
+  </div>
+</div>
